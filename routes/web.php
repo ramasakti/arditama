@@ -15,4 +15,5 @@ use App\Http\Controllers\BlogsController;
 */
 
 Route::get('/', [BlogsController::class, 'landing']);
+Route::get('/article/category/{category}', [BlogsController::class, 'category']);
 Route::get('/article/{slug}', [BlogsController::class, 'article']);

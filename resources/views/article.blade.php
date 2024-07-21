@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="apple-touch-icon" sizes="76x76" href="mundana/img/favicon.ico">
-	<link rel="icon" type="image/png" href="mundana/img/favicon.ico">
+	<link rel="apple-touch-icon" sizes="76x76" href="/mundana/img/favicon.ico">
+	<link rel="icon" type="image/png" href="/mundana/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Mundana Template by WowThemesNet</title>
+	<title>{{ $article->title }}</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<!-- Google Font -->
@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<!-- Main CSS -->
-	<link href="mundana/css/main.css" rel="stylesheet" />
+	<link href="/mundana/css/main.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -28,23 +28,23 @@
 				<div class="row justify-content-between">
 					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
 						<p class="text-uppercase font-weight-bold">
-							<a class="text-danger" href="./category.html">Stories</a>
+							<a class="text-danger" href="/article/category/{{ $article->category_id }}">{{ $article->name }}</a>
 						</p>
-						<h1 class="display-4 secondfont mb-3 font-weight-bold">Sterling could jump 8% if Brexit deal
-							gets approved by UK Parliament</h1>
+						<h1 class="display-4 secondfont mb-3 font-weight-bold">
+							{{ $article->title }}
+						</h1>
 						<p class="mb-3">
-							Analysts told CNBC that the currency could hit anywhere between $1.35-$1.40 if the deal gets
-							passed through the U.K. parliament.
+							{{ $article->description }}
 						</p>
 						<div class="d-flex align-items-center">
-							<img class="rounded-circle" src="mundana/img/demo/avatar2.jpg" width="70">
+							<img class="rounded-circle" src="/mundana/img/demo/avatar2.jpg" width="70">
 							<small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5
 									min. read</span>
 							</small>
 						</div>
 					</div>
 					<div class="col-md-6 pr-0">
-						<img src="mundana/img/demo/intro.jpg">
+						<img src="{{ $article->banner }}">
 					</div>
 				</div>
 			</div>
@@ -73,46 +73,8 @@
 			</div>
 			<div class="col-md-12 col-lg-8">
 				<article class="article-post">
-					<p>
-						Holy grail funding non-disclosure agreement advisor ramen bootstrapping ecosystem. Beta
-						crowdfunding iteratiomundana business plan paradigm shift stealth mass market seed money
-						rockstar niche market marketing buzz market.
-					</p>
-					<p>
-						Burn rate release facebook termsheet equity technology. Interaction design rockstar network
-						effects handshake creative startup direct mailing. Technology influencer direct mailing
-						deployment return on investment seed round.
-					</p>
-					<p>
-						Termsheet business model canvas user experience churn rate low hanging fruit backing iteration
-						buyer seed money. Virality release launch party channels validation learning curve paradigm
-						shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business
-						accelerator market.
-					</p>
-					<p>
-						Freemium non-disclosure agreement lean startup bootstrapping holy grail ramen MVP iteration
-						accelerator. Strategy market ramen leverage paradigm shift seed round entrepreneur crowdfunding
-						social proof angel investor partner network virality.
-					</p>
+					{!! $article->content !!}
 				</article>
-				<div class="border p-5 bg-lightblue">
-					<div class="row justify-content-between">
-						<div class="col-md-5 mb-2 mb-md-0">
-							<h5 class="font-weight-bold secondfont">Become a member</h5>
-							Get the latest news right in your inbox. We never spam!
-						</div>
-						<div class="col-md-7">
-							<div class="row">
-								<div class="col-md-12">
-									<input type="text" class="form-control" placeholder="Enter your e-mail address">
-								</div>
-								<div class="col-md-12 mt-2">
-									<button type="submit" class="btn btn-success btn-block">Subscribe</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -123,7 +85,7 @@
 			<div class="col-lg-6">
 				<div class="card border-0 mb-4 box-shadow h-xl-300">
 					<div
-						style="background-image: url(mundana/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
+						style="background-image: url(/mundana/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
 					</div>
 					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 						<h2 class="h4 font-weight-bold">
@@ -143,7 +105,7 @@
 			<div class="col-lg-6">
 				<div class="flex-md-row mb-4 box-shadow h-xl-300">
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="mundana/img/demo/blog4.jpg">
+						<img height="80" src="/mundana/img/demo/blog4.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
 								<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
@@ -156,7 +118,7 @@
 						</div>
 					</div>
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="mundana/img/demo/blog5.jpg">
+						<img height="80" src="/mundana/img/demo/blog5.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
 								<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
@@ -169,7 +131,7 @@
 						</div>
 					</div>
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="mundana/img/demo/blog6.jpg">
+						<img height="80" src="/mundana/img/demo/blog6.jpg">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
 								<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
@@ -186,15 +148,15 @@
 	</div>
 	<!-- End Main -->
 
-	@include('component.footer-mundana')
+	@include('components.footer-mundana')
 
 	<!--------------------------------------
 JAVASCRIPTS
 --------------------------------------->
-	<script src="mundana/js/vendor/jquery.min.js" type="text/javascript"></script>
-	<script src="mundana/js/vendor/popper.min.js" type="text/javascript"></script>
-	<script src="mundana/js/vendor/bootstrap.min.js" type="text/javascript"></script>
-	<script src="mundana/js/functions.js" type="text/javascript"></script>
+	<script src="/mundana/js/vendor/jquery.min.js" type="text/javascript"></script>
+	<script src="/mundana/js/vendor/popper.min.js" type="text/javascript"></script>
+	<script src="/mundana/js/vendor/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/mundana/js/functions.js" type="text/javascript"></script>
 </body>
 
 </html>

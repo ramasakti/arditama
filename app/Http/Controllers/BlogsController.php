@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Blog;
 use GuzzleHttp\Client;
 use DB;
 
@@ -11,12 +10,8 @@ class BlogsController extends Controller
 {
     public function landing(Request $request)
     {
-        $blogs = Blog::get();
-        $jumbotron = Blog::where('status', 'jumbotron')->first();
-        $popular = Blog::orderBy('hit', 'desc')->limit(5)->get();
-
         $client = new Client();
-        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/blog', [
+        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/api/blog', [
             'headers' => [
                 'Accept' => 'application/json',
                 'Origin' => env('ISPAGRAM_API_URL'),
@@ -24,51 +19,68 @@ class BlogsController extends Controller
         ]);
         $body = $response->getBody();
         $data = json_decode($body);
-        
+
+        // Check if data is empty
+        if (empty($data->payload->jumbotron) || empty($data->payload->second) || empty($data->payload->third) || empty($data->payload->popular) || empty($data->payload->newest)) {
+            // Handle empty data
+            return view('no-data');
+        }
+
         return view('welcome', [
-            'blogs' => $blogs,
-            'jumbotron' => $jumbotron
+            'jumbotron' => $data->payload->jumbotron ?? [],
+            'second' => $data->payload->second ?? null,
+            'third' => $data->payload->third ?? [],
+            'popular' => $data->payload->popular ?? [],
+            'newest' => $data->payload->newest ?? []
+        ]);
+    }
+
+    public function category(Request $request, $category)
+    {
+        $client = new Client();
+        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/category/' . $category, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Origin' => env('ISPAGRAM_API_URL'),
+            ],
+        ]);
+        $body = $response->getBody();
+        $data = json_decode($body);
+
+        // Check if data is empty
+        if (empty($data->payload)) {
+            // Handle empty data
+            return view('no-data');
+        }
+
+        return view('category', [
+            'kategori' => $data->payload->featured->category_name ?? 'Unknown',
+            'featured' => $data->payload->featured ?? null,
+            'popular' => $data->payload->popular ?? [],
+            'newest' => $data->payload->newest ?? []
         ]);
     }
 
     public function article($slug)
     {
-        $article = DB::table('blogs')->where('slug', $slug)->first();
+        $client = new Client();
+        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/blog/' . $slug, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Origin' => env('ISPAGRAM_API_URL'),
+            ],
+        ]);
+        $body = $response->getBody();
+        $data = json_decode($body);
+
+        // Check if data is empty
+        if (empty($data->payload)) {
+            // Handle empty data
+            return view('no-data');
+        }
 
         return view('article', [
-            'article' => $article
+            'article' => $data->payload ?? null
         ]);
-    }
-
-    public function create(Request $request)
-    {
-        $category = DB::table('master_category')->get();
-
-        return view('blogs.create', [
-            'category' => $category
-        ]);
-    }
-
-    public function store(Request $request)
-    {
-
-    }
-
-    public function edit($id, Request $request)
-    {
-
-    }
-
-    public function update($id, Request $request)
-    {
-
-    }
-
-    public function destroy($id)
-    {
-        DB::table('blogs')->where('id', $id)->delete();
-        DB::table('data_category')->where('blog_id', $id)->delete();
-
-        return back()->with('success', 'Berhasil delete data');
     }
 }
