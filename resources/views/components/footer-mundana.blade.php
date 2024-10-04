@@ -4,7 +4,7 @@
         <div class="row align-items-center justify-content-between">
             <div>
                 <span class="navbar-brand mr-2">
-                    <strong>SMP Arditama Waru</strong>
+                    <strong>{{ env('ISPAGRAM_APP_NAME') }}</strong>
                 </span> 
                 Copyright &copy;
                 <script>document.write(new Date().getFullYear())</script>

@@ -28,7 +28,9 @@
 				<div class="row justify-content-between">
 					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
 						<p class="text-uppercase font-weight-bold">
-							<a class="text-danger" href="/article/category/{{ $article->category_id }}">{{ $article->name }}</a>
+							@foreach ($article->categories as $item)
+								<a class="text-danger" href="/article/category/{{ $item->value }}">#{{ $item->label }}</a>
+							@endforeach
 						</p>
 						<h1 class="display-4 secondfont mb-3 font-weight-bold">
 							{{ $article->title }}
@@ -38,8 +40,12 @@
 						</p>
 						<div class="d-flex align-items-center">
 							<img class="rounded-circle" src="/mundana/img/demo/avatar2.jpg" width="70">
-							<small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5
-									min. read</span>
+							<small class="ml-2">
+								Jane Seymour 
+								<span class="text-muted d-block">
+									A few hours ago &middot; 5
+									min. read
+								</span>
 							</small>
 						</div>
 					</div>

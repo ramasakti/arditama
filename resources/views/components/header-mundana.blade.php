@@ -1,7 +1,7 @@
 {{-- Navbar --}}
 <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="./index.html"><strong>SMP Arditama Waru</strong></a>
+        <a class="navbar-brand" href="/"><strong>{{ env('ISPAGRAM_APP_NAME') }}</strong></a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,12 +28,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./about.html">About</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto d-flex align-items-center">
-                <li class="nav-item highlight">
-                    <a class="nav-link" href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Get
-                        this Theme</a>
                 </li>
             </ul>
         </div>

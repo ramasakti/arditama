@@ -41,7 +41,7 @@
 							{{ $featured->description }}
 						</p>
 						<div>
-							<small class="d-block"><a class="text-muted" href="./author.html">{{ $featured->uploader }}</a></small>
+							<small class="d-block"><a class="text-muted" href="/">{{ $featured->uploader }}</a></small>
 							<small class="text-muted">Dec 12 · 5 min read</small>
 						</div>
 					</div>

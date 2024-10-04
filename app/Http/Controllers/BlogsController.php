@@ -15,13 +15,20 @@ class BlogsController extends Controller
             'headers' => [
                 'Accept' => 'application/json',
                 'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
             ],
         ]);
         $body = $response->getBody();
         $data = json_decode($body);
 
         // Check if data is empty
-        if (empty($data->payload->jumbotron) || empty($data->payload->second) || empty($data->payload->third) || empty($data->payload->popular) || empty($data->payload->newest)) {
+        if (
+            empty($data->payload->jumbotron) ||
+            empty($data->payload->second) ||
+            empty($data->payload->third) ||
+            empty($data->payload->popular) ||
+            empty($data->payload->newest)
+        ) {
             // Handle empty data
             return view('no-data');
         }
@@ -42,6 +49,7 @@ class BlogsController extends Controller
             'headers' => [
                 'Accept' => 'application/json',
                 'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
             ],
         ]);
         $body = $response->getBody();
@@ -68,6 +76,7 @@ class BlogsController extends Controller
             'headers' => [
                 'Accept' => 'application/json',
                 'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
             ],
         ]);
         $body = $response->getBody();
