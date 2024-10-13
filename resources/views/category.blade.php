@@ -18,7 +18,9 @@
 	<!-- Main CSS -->
 	<link href="/mundana/css/main.css" rel="stylesheet" />
 </head>
-
+@php
+	use Carbon\Carbon;
+@endphp
 <body>
 	@include('components.header-mundana')
 
@@ -42,7 +44,7 @@
 						</p>
 						<div>
 							<small class="d-block"><a class="text-muted" href="/">{{ $featured->uploader }}</a></small>
-							<small class="text-muted">Dec 12 · 5 min read</small>
+							<small class="text-muted">{{ Carbon::parse($featured->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
 					</div>
 				</div>

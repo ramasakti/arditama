@@ -18,7 +18,9 @@
 	<!-- Main CSS -->
 	<link href="mundana/css/main.css" rel="stylesheet" />
 </head>
-
+@php
+	use Carbon\Carbon;
+@endphp
 <body>
 	@include('components.header-mundana')
 
@@ -44,8 +46,8 @@
 							{{ $second->description }}
 						</p>
 						<div>
-							<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="d-block"><a class="text-muted" href="#">{{ $second->uploader }}</a></small>
+							<small class="text-muted">{{ Carbon::parse($second->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
 					</div>
 				</div>
@@ -62,9 +64,9 @@
 									</a>
 								</h2>
 								<div class="card-text text-muted small">
-									Jake Bittle in LOVE/HATE
+									{{ $item->uploader }}
 								</div>
-								<small class="text-muted">Dec 12 &middot; 5 min read</small>
+								<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 							</div>
 						</div>
 					@endforeach
@@ -91,7 +93,7 @@
 							<div class="card-text text-muted small">
 								Jake Bittle in SCIENCE
 							</div>
-							<small class="text-muted">Dec 12 &middot; 5 min read</small>
+							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
 						<img height="120" src="{{ $item->banner }}">
 					</div>

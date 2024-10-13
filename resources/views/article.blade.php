@@ -18,7 +18,9 @@
 	<!-- Main CSS -->
 	<link href="/mundana/css/main.css" rel="stylesheet" />
 </head>
-
+@php
+	use Carbon\Carbon;
+@endphp
 <body>
 	@include('components.header-mundana')
 
@@ -41,10 +43,9 @@
 						<div class="d-flex align-items-center">
 							<img class="rounded-circle" src="/mundana/img/demo/avatar2.jpg" width="70">
 							<small class="ml-2">
-								Jane Seymour 
+								{{ $article->uploader }}
 								<span class="text-muted d-block">
-									A few hours ago &middot; 5
-									min. read
+									{{ Carbon::parse($article->created_at)->diffForHumans(['parts' => 2]) }}
 								</span>
 							</small>
 						</div>
