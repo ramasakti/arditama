@@ -6,7 +6,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="mundana/img/favicon.ico">
 	<link rel="icon" type="image/png" href="mundana/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	<title>Mundana Template by WowThemesNet</title>
+	<title>{{ env('ISPAGRAM_APP_NAME') }}</title>
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 		name='viewport' />
 	<!-- Google Font -->
@@ -91,7 +91,7 @@
 								{{ $item->description }}
 							</p>
 							<div class="card-text text-muted small">
-								Jake Bittle in SCIENCE
+								{{ $item->uploader }}
 							</div>
 							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
@@ -111,7 +111,7 @@
 									</a>
 								</h6>
 								<p class="text-muted">
-									Jake Bittle in SCIENCE
+									{{ $item->uploader }}
 								</p>
 							</span>
 						</li>
