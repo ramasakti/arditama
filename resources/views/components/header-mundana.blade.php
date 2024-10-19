@@ -8,27 +8,11 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarColor02" style="">
             <ul class="navbar-nav mr-auto d-flex align-items-center">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./article.html">Culture</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./article.html">Tech</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./article.html">Politics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./article.html">Health</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./article.html">Collections</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="./about.html">About</a>
-                </li>
+                @foreach ($navland as $item)
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ $item['url'] }}">{{ $item['name'] }}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </div>
