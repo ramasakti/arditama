@@ -56,7 +56,7 @@
 				<div class="flex-md-row mb-4 box-shadow h-xl-300">
 					@foreach ($third as $item)
 						<div class="mb-3 d-flex align-items-center">
-							<img height="80" src="{{ $item->banner }}">
+							<img height="80" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
 							<div class="pl-3">
 								<h2 class="mb-2 h6 font-weight-bold">
 									<a class="text-dark" href="/article/{{ $item->slug }}">
@@ -95,7 +95,7 @@
 							</div>
 							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
-						<img height="120" src="{{ $item->banner }}">
+						<img height="120" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
 					</div>
 				@endforeach
 			</div>
