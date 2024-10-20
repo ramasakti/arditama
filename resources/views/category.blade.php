@@ -63,11 +63,11 @@
 								{{ $item->description }}
 							</p>
 							<div class="card-text text-muted small">
-								Jake Bittle in SCIENCE
+								{{ $item->uploader }}
 							</div>
 							<small class="text-muted">Dec 12 · 5 min read</small>
 						</div>
-						<img height="120" src="{{ $item->banner }}">
+						<img height="120" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
 					</div>
 				@endforeach
 			</div>
@@ -84,7 +84,7 @@
 										</a>
 									</h6>
 									<p class="text-muted">
-										Jake Bittle in SCIENCE
+										{{ $item->uploader }}
 									</p>
 								</span>
 							</li>
