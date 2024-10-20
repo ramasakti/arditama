@@ -41,7 +41,7 @@
 							{{ $article->description }}
 						</p>
 						<div class="d-flex align-items-center">
-							<img class="rounded-circle" src="/mundana/img/demo/avatar2.jpg" width="70">
+							<img class="rounded-circle" src="{{ $article->avatar ?? 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541' }}" width="70">
 							<small class="ml-2">
 								{{ $article->uploader }}
 								<span class="text-muted d-block">
