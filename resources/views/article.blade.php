@@ -28,7 +28,7 @@
 		<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
 			<div class="h-100 tofront">
 				<div class="row justify-content-between">
-					<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+					<div class="col-md-6 pt-0 pb-6 pr-6 align-self-center">
 						<p class="text-uppercase font-weight-bold">
 							@foreach ($article->categories as $item)
 								<a class="text-danger" href="/article/category/{{ $item->value }}">#{{ $item->label }}</a>
