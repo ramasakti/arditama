@@ -7,14 +7,28 @@
 	<link rel="icon" type="image/png" href="{{ env('FAVICON') }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>{{ $article->title }}</title>
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
-		name='viewport' />
+	<meta name="title" content="{{ $article->title }}" />
+	<meta name="description" content="{{ $article->description }}" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{ env('APP_URL') . '/article/' . $article->slug }}" />
+	<meta property="og:title" content="{{ $article->title }}" />
+	<meta property="og:description" content="{{ $article->description }}" />
+	<meta property="og:image" content="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}" />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="{{ env('APP_URL') . '/article/' . $article->slug }}" />
+	<meta property="twitter:title" content="{{ $article->title }}" />
+	<meta property="twitter:description" content="{{ $article->description }}" />
+	<meta property="twitter:image" content="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}" />
+
 	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
 	<!-- Font Awesome Icons -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<!-- Main CSS -->
 	<link href="/mundana/css/main.css" rel="stylesheet" />
 </head>
