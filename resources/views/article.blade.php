@@ -94,69 +94,43 @@
 		<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
 		<div class="row">
 			<div class="col-lg-6">
-				<div class="card border-0 mb-4 box-shadow h-xl-300">
-					<div
-						style="background-image: url(/mundana/img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;">
-					</div>
-					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-						<h2 class="h4 font-weight-bold">
-							<a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
-						</h2>
-						<p class="card-text">
-							Researchers have found an effective target in the brain for electrical stimulation to
-							improve mood in people suffering from depression.
-						</p>
-						<div>
-							<small class="d-block"><a class="text-muted" href="./author.html">Favid Rick</a></small>
-							<small class="text-muted">Dec 12 · 5 min read</small>
+				@if ($related_articles['featured'])	
+					<div class="card border-0 mb-4 box-shadow h-xl-300">
+						<div style="background-image: url({{ $related_articles['featured']->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
+						</div>
+						<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+							<h2 class="h4 font-weight-bold">
+								<a class="text-dark" href="{{ $related_articles['featured']->slug }}">{{ $related_articles['featured']->title }}</a>
+							</h2>
+							<p class="card-text">
+								{{ $related_articles['featured']->description }}
+							</p>
+							<div>
+								<small class="d-block"><a class="text-muted" href="#">{{ $related_articles['featured']->uploader }}</a></small>
+								<small class="text-muted">{{ Carbon::parse($related_articles['featured']->created_at)->diffForHumans(['parts' => 2]) }}</small>
+							</div>
 						</div>
 					</div>
-				</div>
+				@endif
 			</div>
 			<div class="col-lg-6">
-				<div class="flex-md-row mb-4 box-shadow h-xl-300">
+				@foreach ($related_articles['random_articles'] as $article)
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="/mundana/img/demo/blog4.jpg">
+						<img height="80" src="{{ $article->banner }}">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="./article.html">Nasa's IceSat space laser makes height maps
-									of Earth</a>
+								<a class="text-dark" href="{{ $article->slug }}">{{ $article->title }}</a>
 							</h2>
 							<div class="card-text text-muted small">
-								Jake Bittle in LOVE/HATE
+								{{ $article->uploader }}
 							</div>
-							<small class="text-muted">Dec 12 · 5 min read</small>
+							<small class="text-muted">{{ Carbon::parse($article->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
 					</div>
-					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="/mundana/img/demo/blog5.jpg">
-						<div class="pl-3">
-							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="./article.html">Underwater museum brings hope to Lake
-									Titicaca</a>
-							</h2>
-							<div class="card-text text-muted small">
-								Jake Bittle in LOVE/HATE
-							</div>
-							<small class="text-muted">Dec 12 · 5 min read</small>
-						</div>
-					</div>
-					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="/mundana/img/demo/blog6.jpg">
-						<div class="pl-3">
-							<h2 class="mb-2 h6 font-weight-bold">
-								<a class="text-dark" href="./article.html">Sun-skimming probe starts calling home</a>
-							</h2>
-							<div class="card-text text-muted small">
-								Jake Bittle in LOVE/HATE
-							</div>
-							<small class="text-muted">Dec 12 · 5 min read</small>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
 		</div>
-	</div>
+	</div>	
 	<!-- End Main -->
 
 	@include('components.footer-mundana')

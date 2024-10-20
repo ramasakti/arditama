@@ -62,7 +62,7 @@ class BlogsController extends Controller
         }
 
         return view('category', [
-            'kategori' => $data->payload->featured->category_name ?? 'Unknown',
+            'kategori' => $data->payload->newest[0]->category_name ?? 'Unknown',
             'featured' => $data->payload->featured ?? null,
             'popular' => $data->payload->popular ?? [],
             'newest' => $data->payload->newest ?? []
@@ -72,24 +72,46 @@ class BlogsController extends Controller
     public function article($slug)
     {
         $client = new Client();
-        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/blog/' . $slug, [
+
+        // Ambil artikel berdasarkan slug
+        $getArticle = $client->request('GET', env('ISPAGRAM_API_URL') . '/blog/' . $slug, [
             'headers' => [
                 'Accept' => 'application/json',
                 'Origin' => env('ISPAGRAM_API_URL'),
                 'x-app-id' => env('ISPAGRAM_APP_ID')
             ],
         ]);
-        $body = $response->getBody();
-        $data = json_decode($body);
+        $bodyArticle = $getArticle->getBody();
+        $dataArticle = json_decode($bodyArticle);
 
-        // Check if data is empty
-        if (empty($data->payload)) {
-            // Handle empty data
+        // Cek apakah artikel ditemukan
+        if (empty($dataArticle->payload)) {
             return view('no-data');
         }
 
+        // Ambil artikel dari kategori yang sesuai
+        $getRelatedArticles = $client->request('GET', env('ISPAGRAM_API_URL') . '/category/' . $dataArticle->payload->categories[0]->value, [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
+            ],
+        ]);
+
+        $bodyRelatedArticles = $getRelatedArticles->getBody();
+        $relatedArticles = json_decode($bodyRelatedArticles);
+
+        // Acak 3 artikel dari popular dan newest
+        $popularAndNewest = array_merge($relatedArticles->payload->popular, $relatedArticles->payload->newest);
+        shuffle($popularAndNewest);
+        $randomArticles = array_slice($popularAndNewest, 0, 3);
+
         return view('article', [
-            'article' => $data->payload ?? null
+            'article' => $dataArticle->payload,
+            'related_articles' => [
+                'featured' => $relatedArticles->featured ?? null,
+                'random_articles' => $randomArticles,
+            ]
         ]);
     }
 }

@@ -28,26 +28,28 @@
 	<div class="container mt-5 mb-5">
 		<div class="row">
 			<div class="col-md-8">
-				<h5 class="font-weight-bold spanborder"><span>Featured in {{ $kategori }}</span></h5>
-				<div class="card border-0 mb-5 box-shadow">
-					<div
-						style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $featured->banner }}); height: 350px; background-size: cover; background-repeat: no-repeat;">
-					</div>
-					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-						<h2 class="h2 font-weight-bold">
-							<a class="text-dark" href="/article/{{ $featured->slug }}">
-								{{ $featured->title }}
-							</a>
-						</h2>
-						<p class="card-text">
-							{{ $featured->description }}
-						</p>
-						<div>
-							<small class="d-block"><a class="text-muted" href="/">{{ $featured->uploader }}</a></small>
-							<small class="text-muted">{{ Carbon::parse($featured->created_at)->diffForHumans(['parts' => 2]) }}</small>
+				@if ($featured)
+					<h5 class="font-weight-bold spanborder"><span>Featured in {{ $kategori }}</span></h5>
+					<div class="card border-0 mb-5 box-shadow">
+						<div
+							style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $featured->banner }}); height: 350px; background-size: cover; background-repeat: no-repeat;">
+						</div>
+						<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+							<h2 class="h2 font-weight-bold">
+								<a class="text-dark" href="/article/{{ $featured->slug }}">
+									{{ $featured->title }}
+								</a>
+							</h2>
+							<p class="card-text">
+								{{ $featured->description }}
+							</p>
+							<div>
+								<small class="d-block"><a class="text-muted" href="/">{{ $featured->uploader }}</a></small>
+								<small class="text-muted">{{ Carbon::parse($featured->created_at)->diffForHumans(['parts' => 2]) }}</small>
+							</div>
 						</div>
 					</div>
-				</div>
+				@endif
 				<h5 class="font-weight-bold spanborder"><span>Terbaru</span></h5>
 				@foreach ($newest as $item)	
 					<div class="mb-3 d-flex justify-content-between">
