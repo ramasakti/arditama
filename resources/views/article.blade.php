@@ -42,7 +42,7 @@
 						</p>
 						<div class="d-flex align-items-center">
 							@if ($article->avatar)
-								<img class="rounded-circle" src="{{ $article->avatar }}" width="70">
+								<img class="rounded-circle" src="{{ env('PUBLIC_FTP_URL') . '/' . $article->avatar }}" width="70">
 							@else
 								<img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" width="70">
 							@endif
@@ -96,7 +96,7 @@
 			<div class="col-lg-6">
 				@if ($related_articles['featured'])	
 					<div class="card border-0 mb-4 box-shadow h-xl-300">
-						<div style="background-image: url({{ $related_articles['featured']->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
+						<div style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $related_articles['featured']->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
 						</div>
 						<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 							<h2 class="h4 font-weight-bold">
@@ -116,7 +116,7 @@
 			<div class="col-lg-6">
 				@foreach ($related_articles['random_articles'] as $article)
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="{{ $article->banner }}">
+						<img height="80" src="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
 								<a class="text-dark" href="{{ $article->slug }}">{{ $article->title }}</a>
