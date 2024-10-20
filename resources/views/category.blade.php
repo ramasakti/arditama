@@ -31,7 +31,7 @@
 				<h5 class="font-weight-bold spanborder"><span>Featured in {{ $kategori }}</span></h5>
 				<div class="card border-0 mb-5 box-shadow">
 					<div
-						style="background-image: url({{ $featured->banner }}); height: 350px; background-size: cover; background-repeat: no-repeat;">
+						style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $featured->banner }}); height: 350px; background-size: cover; background-repeat: no-repeat;">
 					</div>
 					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
 						<h2 class="h2 font-weight-bold">

@@ -51,7 +51,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 pr-0">
-						<img src="{{ $article->banner }}">
+						<img src="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}">
 					</div>
 				</div>
 			</div>
