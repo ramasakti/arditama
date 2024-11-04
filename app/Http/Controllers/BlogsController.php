@@ -114,4 +114,40 @@ class BlogsController extends Controller
             ]
         ]);
     }
+
+    public function newest()
+    {
+        $client = new Client();
+        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/newest', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
+            ],
+        ]);
+        $body = $response->getBody();
+        $data = json_decode($body);
+
+        return view('newest', [
+            'newest' => $data->payload
+        ]);
+    }
+
+    public function popular()
+    {
+        $client = new Client();
+        $response = $client->request('GET', env('ISPAGRAM_API_URL') . '/popular', [
+            'headers' => [
+                'Accept' => 'application/json',
+                'Origin' => env('ISPAGRAM_API_URL'),
+                'x-app-id' => env('ISPAGRAM_APP_ID')
+            ],
+        ]);
+        $body = $response->getBody();
+        $data = json_decode($body);
+
+        return view('popular', [
+            'popular' => $data->payload
+        ]);
+    }
 }

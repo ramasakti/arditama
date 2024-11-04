@@ -6,11 +6,13 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="{{ env('FAVICON') }}">
 	<link rel="icon" type="image/png" href="{{ env('FAVICON') }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+	
+	<!-- Metatags -->
 	<title>{{ $article->title }}</title>
 	<meta name="title" content="{{ $article->title }}" />
 	<meta name="description" content="{{ $article->description }}" />
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-	
+
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="{{ env('APP_URL') . '/article/' . $article->slug }}" />

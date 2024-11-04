@@ -18,5 +18,5 @@ Route::get('/', [BlogsController::class, 'landing']);
 Route::get('/article/category/{category}', [BlogsController::class, 'category']);
 Route::get('/article/{slug}', [BlogsController::class, 'article']);
 
-Route::get('/a', [TransaksiController::class, 'index']);
-Route::post('/registrasi', [TransaksiController::class, 'process']);
+Route::get('/newest', [BlogsController::class, 'newest']);
+Route::get('/popular', [BlogsController::class, 'popular']);

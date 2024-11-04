@@ -41,65 +41,14 @@
 	@include('components.header-mundana')
 
 	<div class="container">
-		@include('components.jumbotron-mundana')
-	</div>
-
-    {{-- Main --}}
-	<div class="container pt-4 pb-4">
-		<div class="row">
-			<div class="col-lg-6">
-				<div class="card border-0 mb-4 box-shadow h-xl-300">
-					<div
-						style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $second->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
-					</div>
-					<div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-						<h2 class="h4 font-weight-bold">
-							<a class="text-dark" href="/article/{{ $second->slug }}">
-								{{ $second->title }}
-							</a>
-						</h2>
-						<p class="card-text">
-							{{ $second->description }}
-						</p>
-						<div>
-							<small class="d-block"><a class="text-muted" href="#">{{ $second->uploader }}</a></small>
-							<small class="text-muted">{{ Carbon::parse($second->created_at)->diffForHumans(['parts' => 2]) }}</small>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<div class="flex-md-row mb-4 box-shadow h-xl-300">
-					@foreach ($third as $item)
-						<div class="mb-3 d-flex align-items-center">
-							<img height="80" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
-							<div class="pl-3">
-								<h2 class="mb-2 h6 font-weight-bold">
-									<a class="text-dark" href="/article/{{ $item->slug }}">
-										{{ $item->title }}
-									</a>
-								</h2>
-								<div class="card-text text-muted small">
-									{{ $item->uploader }}
-								</div>
-								<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
-							</div>
-						</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
 		<div class="row justify-content-between">
-			<div class="col-md-8">
+			<div class="col-md-12">
 				<h5 class="font-weight-bold spanborder">
-					<a class="text-dark"  href="/newest">
-						<span>Terbaru</span>
+					<a class="text-dark"  href="/popular">
+						<span>Artikel Populer</span>
 					</a>
 				</h5>
-				@foreach ($newest as $item)	
+				@foreach ($popular as $item)
 					<div class="mb-3 d-flex justify-content-between">
 						<div class="pr-3">
 							<h2 class="mb-1 h4 font-weight-bold">
@@ -118,31 +67,6 @@
 						<img height="120" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
 					</div>
 				@endforeach
-				<a href="/newest" class="btn btn-dark w-100">Telusuri Artikel Terbaru</a>
-			</div>
-			<div class="col-md-4 pl-4">
-				<h5 class="font-weight-bold spanborder">
-					<a class="text-dark"  href="/newest">
-						<span>Popular</span>
-					</a>
-				</h5>
-				<ol class="list-featured">
-					@foreach ($popular as $item)
-						<li>
-							<span>
-								<h6 class="font-weight-bold">
-									<a href="/article/{{ $item->slug }}" class="text-dark">
-										{{ $item->title }}
-									</a>
-								</h6>
-								<p class="text-muted">
-									{{ $item->uploader }}
-								</p>
-							</span>
-						</li>
-					@endforeach
-				</ol>
-				<a href="/popular" class="btn btn-dark w-100">Telusuri Artikel Populer</a>
 			</div>
 		</div>
 	</div>
