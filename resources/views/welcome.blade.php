@@ -62,7 +62,7 @@
 							{{ $second->description }}
 						</p>
 						<div>
-							<small class="d-block"><a class="text-muted" href="#">{{ $second->uploader }}</a></small>
+							<small class="d-block"><a class="text-muted" href="#">{{ $second->name }}</a></small>
 							<small class="text-muted">{{ Carbon::parse($second->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
 					</div>
@@ -80,7 +80,7 @@
 									</a>
 								</h2>
 								<div class="card-text text-muted small">
-									{{ $item->uploader }}
+									{{ $item->name }}
 								</div>
 								<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 							</div>
@@ -111,7 +111,7 @@
 								{{ $item->description }}
 							</p>
 							<div class="card-text text-muted small">
-								{{ $item->uploader }}
+								{{ $item->name }}
 							</div>
 							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
@@ -136,7 +136,7 @@
 									</a>
 								</h6>
 								<p class="text-muted">
-									{{ $item->uploader }}
+									{{ $item->name }}
 								</p>
 							</span>
 						</li>

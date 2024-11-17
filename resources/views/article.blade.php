@@ -63,7 +63,7 @@
 								<img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" width="70">
 							@endif
 							<small class="ml-2">
-								{{ $article->uploader }}
+								{{ $article->name }}
 								<span class="text-muted d-block">
 									{{ Carbon::parse($article->created_at)->diffForHumans(['parts' => 2]) }}
 								</span>
@@ -122,7 +122,7 @@
 								{{ $related_articles['featured']->description }}
 							</p>
 							<div>
-								<small class="d-block"><a class="text-muted" href="#">{{ $related_articles['featured']->uploader }}</a></small>
+								<small class="d-block"><a class="text-muted" href="#">{{ $related_articles['featured']->name }}</a></small>
 								<small class="text-muted">{{ Carbon::parse($related_articles['featured']->created_at)->diffForHumans(['parts' => 2]) }}</small>
 							</div>
 						</div>
@@ -138,7 +138,7 @@
 								<a class="text-dark" href="{{ $article->slug }}">{{ $article->title }}</a>
 							</h2>
 							<div class="card-text text-muted small">
-								{{ $article->uploader }}
+								{{ $article->name }}
 							</div>
 							<small class="text-muted">{{ Carbon::parse($article->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>

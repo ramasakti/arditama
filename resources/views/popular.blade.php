@@ -60,7 +60,7 @@
 								{{ $item->description }}
 							</p>
 							<div class="card-text text-muted small">
-								{{ $item->uploader }}
+								{{ $item->name }}
 							</div>
 							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>

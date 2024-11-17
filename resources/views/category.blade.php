@@ -44,7 +44,7 @@
 								{{ $featured->description }}
 							</p>
 							<div>
-								<small class="d-block"><a class="text-muted" href="/">{{ $featured->uploader }}</a></small>
+								<small class="d-block"><a class="text-muted" href="/">{{ $featured->name }}</a></small>
 								<small class="text-muted">{{ Carbon::parse($featured->created_at)->diffForHumans(['parts' => 2]) }}</small>
 							</div>
 						</div>
@@ -63,7 +63,7 @@
 								{{ $item->description }}
 							</p>
 							<div class="card-text text-muted small">
-								{{ $item->uploader }}
+								{{ $item->name }}
 							</div>
 							<small class="text-muted">Dec 12 · 5 min read</small>
 						</div>
@@ -84,7 +84,7 @@
 										</a>
 									</h6>
 									<p class="text-muted">
-										{{ $item->uploader }}
+										{{ $item->name }}
 									</p>
 								</span>
 							</li>
