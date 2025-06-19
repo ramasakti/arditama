@@ -21,18 +21,6 @@ class BlogsController extends Controller
         $body = $response->getBody();
         $data = json_decode($body);
 
-        // Check if data is empty
-        if (
-            empty($data->payload->jumbotron) ||
-            empty($data->payload->second) ||
-            empty($data->payload->third) ||
-            empty($data->payload->popular) ||
-            empty($data->payload->newest)
-        ) {
-            // Handle empty data
-            return view('no-data');
-        }
-
         return view('welcome', [
             'jumbotron' => $data->payload->jumbotron ?? [],
             'second' => $data->payload->second ?? null,
