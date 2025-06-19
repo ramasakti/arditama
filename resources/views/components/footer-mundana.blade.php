@@ -10,11 +10,6 @@
                 <script>document.write(new Date().getFullYear())</script>
                 . All rights reserved.
             </div>
-            <div>
-                Made with <a target="_blank" class="text-secondary font-weight-bold"
-                    href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">Mundana Theme</a> by
-                WowThemes.net.
-            </div>
         </div>
     </footer>
 </div>
