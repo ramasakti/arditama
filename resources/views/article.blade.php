@@ -18,14 +18,14 @@
 	<meta property="og:url" content="{{ env('APP_URL') . '/article/' . $article->slug }}" />
 	<meta property="og:title" content="{{ $article->title }}" />
 	<meta property="og:description" content="{{ $article->description }}" />
-	<meta property="og:image" content="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}" />
+	<meta property="og:image" content="{{ env('PUBLIC_FTP_URL') . '/banner/' . $article->banner }}" />
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="{{ env('APP_URL') . '/article/' . $article->slug }}" />
 	<meta property="twitter:title" content="{{ $article->title }}" />
 	<meta property="twitter:description" content="{{ $article->description }}" />
-	<meta property="twitter:image" content="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}" />
+	<meta property="twitter:image" content="{{ env('PUBLIC_FTP_URL') . '/banner/' . $article->banner }}" />
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700|Source+Sans+Pro:400,700" rel="stylesheet">
