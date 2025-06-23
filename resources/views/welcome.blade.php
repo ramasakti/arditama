@@ -55,7 +55,7 @@
                 @if ($second)
                     <div class="card border-0 mb-4 box-shadow h-xl-300">
                         <div
-                            style="background-image: url({{ env('PUBLIC_FTP_URL') . '/' . $second->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
+                            style="background-image: url({{ env('PUBLIC_FTP_URL') . '/banner/' . $second->banner }}); height: 150px; background-size: cover; background-repeat: no-repeat;">
                         </div>
                         <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
                             <h2 class="h4 font-weight-bold">
