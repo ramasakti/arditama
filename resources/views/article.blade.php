@@ -58,7 +58,7 @@
 						</p>
 						<div class="d-flex align-items-center">
 							@if ($article->avatar)
-								<img class="rounded-circle" src="{{ env('PUBLIC_FTP_URL') . '/' . $article->avatar }}" width="70">
+								<img class="rounded-circle" src="{{ env('PUBLIC_FTP_URL') . '/avatar/' . $article->avatar }}" width="70">
 							@else
 								<img class="rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" width="70">
 							@endif
@@ -71,7 +71,7 @@
 						</div>
 					</div>
 					<div class="col-md-6 pr-0">
-						<img src="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}">
+						<img src="{{ env('PUBLIC_FTP_URL') . '/banner/' . $article->banner }}">
 					</div>
 				</div>
 			</div>
@@ -132,7 +132,7 @@
 			<div class="col-lg-6">
 				@foreach ($related_articles['random_articles'] as $article)
 					<div class="mb-3 d-flex align-items-center">
-						<img height="80" src="{{ env('PUBLIC_FTP_URL') . '/' . $article->banner }}">
+						<img height="80" src="{{ env('PUBLIC_FTP_URL') . '/banner/' . $article->banner }}">
 						<div class="pl-3">
 							<h2 class="mb-2 h6 font-weight-bold">
 								<a class="text-dark" href="{{ $article->slug }}">{{ $article->title }}</a>

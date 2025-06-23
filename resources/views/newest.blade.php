@@ -64,7 +64,7 @@
 							</div>
 							<small class="text-muted">{{ Carbon::parse($item->created_at)->diffForHumans(['parts' => 2]) }}</small>
 						</div>
-						<img height="120" src="{{ env('PUBLIC_FTP_URL') . '/' . $item->banner }}">
+						<img height="120" src="{{ env('PUBLIC_FTP_URL') . '/banner/' . $item->banner  }}">
 					</div>
 				@endforeach
 			</div>

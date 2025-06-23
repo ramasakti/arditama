@@ -12,7 +12,7 @@
                     <a href="/article/{{ $jumbotron->slug }}" class="btn btn-dark">Baca Selengkapnya</a>
                 </div>
                 <div class="col-md-6 d-none d-md-block pr-0"
-                    style="background-size:cover;background-image:url({{ env('PUBLIC_FTP_URL') . '/' . $jumbotron->banner }});">
+                    style="background-size:cover;background-image:url({{ env('PUBLIC_FTP_URL') . '/banner/' . $jumbotron->banner }});">
                 </div>
             </div>
         </div>
